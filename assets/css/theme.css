@@ -12744,6 +12744,42 @@ code[class*='language-'], pre[class*='language-'] {
   font-size: 0.7rem;
 }
 
+/* Desktop: fade + slide animation for dropdowns */
+@media (min-width: 992px) {
+  .dropdown-menu {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s;
+    pointer-events: none;
+  }
+  .dropdown-menu.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* Mobile: slide down animation for dropdowns */
+@media (max-width: 991.98px) {
+  .dropdown-menu {
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border: none;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+  }
+  .dropdown-menu.show {
+    max-height: 500px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
 .dropdown-item {
   -webkit-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
