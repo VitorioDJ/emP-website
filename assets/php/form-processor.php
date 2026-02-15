@@ -12,9 +12,6 @@
 		$subject	= "Email from Your Website";
 		$file		= '';
 		$redirect	= 'https://ooblue.is';
-		$reCaptchaSecret = "6Lck1FAUAAAAAH3Y3wOtFAx5IjS2z_MD5WpNl4P9";
-
-
 		if(isset($_POST['from'])){
 			$from 	= $_POST['from'];
 			unset($_POST['from']);
@@ -40,45 +37,6 @@
 			$redirect 	= $_POST['redirect'];
 			unset($_POST['redirect']);
 		}
-
-		if(array_key_exists("g-recaptcha-response", $_POST)) {
-			if(isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] != '') {
-				$recaptcha = $_POST["g-recaptcha-response"];
-				// echo $recaptcha;
-			} else {
-				echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					Please, verify you are a human.
-				</div>';
-				return;
-			}
-
-			$postdata = http_build_query([
-				"secret" => $reCaptchaSecret,
-				"response" => $recaptcha
-			]);
-			$opts = ['http' =>
-			   [
-			       'method'  => 'POST',
-			       'header'  => 'Content-type: application/x-www-form-urlencoded',
-			       'content' => $postdata
-			   ]
-			];
-			$context  = stream_context_create($opts);
-			$result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
-			$check = json_decode($result);
-
-			if(!$check->success) {
-				header("HTTP/1.1 422 failed");
-				echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					reCaptcha validation failed!
-				</div>';
-				return;
-			}
-		}
-
-
 
 		$message = "";
 	   	foreach ($_POST as $field => $data){
