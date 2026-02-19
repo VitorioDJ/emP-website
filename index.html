@@ -44,9 +44,7 @@
     <link href="./assets/lib/owl.carousel/owl.carousel.css" rel="stylesheet">
     <link href="./assets/lib/remodal/remodal.css" rel="stylesheet">
     <link href="./assets/lib/remodal/remodal-default-theme.css" rel="stylesheet">
-    <link href="./assets/lib/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.css" rel="stylesheet">
     <link href="./assets/css/theme.css" rel="stylesheet">
-    <link href="./assets/lib/plyr/plyr.css" rel="stylesheet">
 
   </head>
 
@@ -683,17 +681,11 @@
     <!--    JavaScripts-->
     <!-- ===============================================-->
     <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/bootstrap.js"></script>
-    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/plugins.min.js"></script>
     <script src="./assets/js/theme.js"></script>
-    <script src="./assets/lib/plyr/plyr.polyfilled.min.js"></script>
     <script src="./assets/lib/owl.carousel/owl.carousel.js"></script>
     <script src="./assets/lib/remodal/remodal.min.js"></script>
-    <script src="assets/js/typed.js"></script>
-    
-    <!-- <script src="./assets/lib/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script> -->
-    <!-- <script src="./assets/js/stickyfill.min.js"></script> -->
-    <!-- <script src="./assets/lib/@fortawesome/all.min.js"></script> -->
     <script>
       // Close mobile navbar when a nav link is clicked
       $(document).on('click', '.navbar-collapse .nav-link, .navbar-collapse .dropdown-item', function () {
@@ -711,13 +703,24 @@
           $collapse.collapse('hide');
         }
       });
+
+      // Lazy-load Plyr only when the Vimeo modal is opened
+      var plyrLoaded = false;
+      $(document).on('opening', '.remodal[data-remodal-id="modal-vibe-journey"]', function () {
+        if (plyrLoaded) return;
+        plyrLoaded = true;
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = './assets/lib/plyr/plyr.css';
+        document.head.appendChild(link);
+        var script = document.createElement('script');
+        script.src = './assets/lib/plyr/plyr.polyfilled.min.js';
+        script.onload = function () {
+          var players = Plyr.setup('.player');
+        };
+        document.body.appendChild(script);
+      });
     </script>
-    <!-- <script src="./assets/js/popper.min.js"></script> -->
-    <!-- <script src="./assets/js/rellax.min.js"></script> -->
-    <!-- <script src="./assets/js/progressbar.min.js"></script> -->
-    <!-- <script src="./assets/lib/isotope-layout/isotope.pkgd.min.js"></script> -->
-    <!-- <script src="./assets/lib/isotope-packery/packery-mode.pkgd.min.js"></script> -->
-    <!-- <script src="./assets/lib/hover-dir/jquery.hoverdir.js"></script> -->
 
   </body>
 
