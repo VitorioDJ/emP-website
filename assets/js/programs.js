@@ -166,6 +166,12 @@
     return parts.join('');
   }
 
+  function urlLooksLikePdf(url) {
+    if (!url || typeof url !== 'string') return false;
+    var path = url.split(/[?#]/)[0].toLowerCase();
+    return path.slice(-4) === '.pdf';
+  }
+
   function programLandingPage(program) {
     return (program && program.landingPage ? String(program.landingPage) : '').trim();
   }
@@ -189,7 +195,9 @@
       pdfBlock =
         '<a class="text-dark font-weight-semi-bold" href="' +
         escapeHtml(pdfUrl) +
-        '" target="_blank" rel="noopener noreferrer">' +
+        '"' +
+        (urlLooksLikePdf(pdfUrl) ? ' target="_blank" rel="noopener noreferrer"' : '') +
+        '>' +
         escapeHtml(pdfLabel) +
         '<span class="fas fa-angle-right ml-1 text-900" data-fa-transform="down-2"></span></a>';
     }
@@ -199,7 +207,7 @@
       btnBlock =
         '<a class="btn btn-dark hvr-sweep-top px-4" href="' +
         escapeHtml(btnLink) +
-        '" target="_blank" rel="noopener noreferrer">' +
+        '">' +
         escapeHtml(btnTitle) +
         '</a>';
     } else {
