@@ -1,0 +1,90 @@
+{
+  "programs": [
+    {
+      "id": "sacred-spaces",
+      "image": "./assets/img/projects/c-sacred-spaces.jpg",
+      "title": "SACRED SPACES",
+      "subtitle": "Level 1 - Group 2",
+      "description": "Everything in the Universe is within you.\n— Rumi",
+      "pdfUrl": "./assets/media/sacred-spaces.pdf",
+      "pdfLabel": "More Info (PDF 34 Mb)",
+      "buttonTitle": "Apply",
+      "buttonLink": "",
+      "modal": [
+        { "type": "title", "text": "Sacred Spaces" },
+        {
+          "type": "images",
+          "urls": [
+            "./assets/img/projects/VIBE-Course/1.jpg",
+            "./assets/img/projects/VIBE-Course/2.jpg",
+            "./assets/img/projects/VIBE-Course/3.jpg",
+            "./assets/img/projects/VIBE-Course/4.jpg",
+            "./assets/img/projects/VIBE-Course/5.jpg",
+            "./assets/img/projects/VIBE-Course/6.jpg",
+            "./assets/img/projects/VIBE-Course/7.jpg",
+            "./assets/img/projects/VIBE-Course/8.jpg",
+            "./assets/img/projects/VIBE-Course/9.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vibe-journey-sinai",
+      "image": "./assets/img/projects/vibe-sinai.jpg",
+      "title": "VIBE Journey SINAI & JORDAN",
+      "subtitle": "Untying The Knots",
+      "description": "Return to the core of your being.",
+      "pdfUrl": "./assets/media/vibe-journey-sinai.pdf",
+      "pdfLabel": "More Info (PDF 34 Mb)",
+      "buttonTitle": "Apply",
+      "buttonLink": "",
+      "modal": [
+        { "type": "title", "text": "Vibe Journey" },
+        {
+          "type": "images",
+          "urls": [
+            "./assets/img/projects/VIBE-Journey-02/1.jpg",
+            "./assets/img/projects/VIBE-Journey-02/2.jpg",
+            "./assets/img/projects/VIBE-Journey-02/3.jpg",
+            "./assets/img/projects/VIBE-Journey-02/4.jpg",
+            "./assets/img/projects/VIBE-Journey-02/5.jpg",
+            "./assets/img/projects/VIBE-Journey-02/6.jpg",
+            "./assets/img/projects/VIBE-Journey-02/7.jpg",
+            "./assets/img/projects/VIBE-Journey-02/8.jpg",
+            "./assets/img/projects/VIBE-Journey-02/9.jpg",
+            "./assets/img/projects/VIBE-Journey-02/10.jpg",
+            "./assets/img/projects/VIBE-Journey-02/11.jpg",
+            "./assets/img/projects/VIBE-Journey-02/12.jpg",
+            "./assets/img/projects/VIBE-Journey-02/13.jpg",
+            "./assets/img/projects/VIBE-Journey-02/14.jpg",
+            "./assets/img/projects/VIBE-Journey-02/15.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vibe-journey-bali",
+      "image": "./assets/img/projects/vibe-bali.jpg",
+      "title": "VIBE Journey BALI",
+      "subtitle": "STARCHILD",
+      "description": "Immersive, multi-dimensional sacred experience.",
+      "pdfUrl": "./assets/media/vibe-journey-bali.pdf",
+      "pdfLabel": "More Info (PDF 16 Mb)",
+      "buttonTitle": "Apply",
+      "buttonLink": "",
+      "modal": [
+        { "type": "title", "text": "Vibe Journey" },
+        { "type": "video", "url": "https://vimeo.com/1056222627" },
+        {
+          "type": "images",
+          "urls": [
+            "./assets/img/projects/VIBE-Journey/1.jpg",
+            "./assets/img/projects/VIBE-Journey/2.jpg",
+            "./assets/img/projects/VIBE-Journey/3.jpg",
+            "./assets/img/projects/VIBE-Journey/4.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}

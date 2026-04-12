@@ -165,56 +165,7 @@
 
           <div class="card-scroll-shell">
             <div class="card-scroll-viewport" role="region" aria-label="Program offerings">
-              <div class="row justify-content-center card-scroll-row">
-
-            <div class="col-md-6 col-lg-4 d-flex flex-column mb-2 mb-md-4 "><a href="#!" data-remodal-target="modal-vibe-course" target="_blank"> <img class="img-fluid rounded-top" src="./assets/img/projects/c-sacred-spaces.jpg" alt="" /></a>
-              <div class="p-2 p-md-3 border rounded-bottom border-top-0 bg-vik-101 flex-grow-1 d-flex flex-column" >
-                <h5 class="text-base text-transform-none font-weight-medium lh-1"><a class="text-black" href="#!" data-remodal-target="modal-vibe-course" target="_blank"><span class="text-sans-serif font-weight-bold d-block">SACRED SPACES</span><span class="fs-0 d-block">Level 1 - Group 2</span></a></h5>
-                <p class="mb-0">Everything in the Universe is within you.<br><i>— Rumi</i></p>
-                <div class="mt-auto d-flex flex-column program-card-cta">
-                  <a class="text-dark font-weight-semi-bold" href="./assets/media/sacred-spaces.pdf" target="_blank">More Info (PDF 34 Mb)<span class="fas fa-angle-right ml-1 text-900" data-fa-transform="down-2"></span></a>
-                  <hr class="program-card-cta-rule" />
-
-                  <!-- <div data-zanim-xs='{"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.5}'><a class="btn btn-dark hvr-sweep-top px-4" href="./x-connect.html" target="_blank" data-fancyscroll="data-fancyscroll" data-offset="64">
-                    Apply</a></div> -->
-
-                  <div><a class="btn btn-dark hvr-sweep-top px-4" href="#!" data-remodal-target="modal-closed">Apply</a></div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 d-flex flex-column mb-2 mb-md-4 "><a href="#!" data-remodal-target="modal-vibe-journey-02" target="_blank"> <img class="img-fluid rounded-top" src="./assets/img/projects/vibe-sinai.jpg" alt="" /></a>
-              <div class="p-2 p-md-3 border rounded-bottom border-top-0 bg-vik-101 flex-grow-1 d-flex flex-column" >
-                <h5 class="text-base text-transform-none font-weight-medium lh-1"><a class="text-black" href="#!" data-remodal-target="modal-vibe-journey-02" target="_blank"><span class="text-sans-serif font-weight-bold d-block">VIBE Journey SINAI & JORDAN</span><span class="fs-0 d-block">Untying The Knots</span></a></h5>
-                <p class="mb-0">Return to the core of your being.</p>
-                <div class="mt-auto d-flex flex-column program-card-cta">
-                  <a class="text-dark font-weight-semi-bold" href="./assets/media/vibe-journey-sinai.pdf" target="_blank">More Info (PDF 34 Mb)<span class="fas fa-angle-right ml-1 text-900" data-fa-transform="down-2"></span></a>
-                  <hr class="program-card-cta-rule" />
-
-                  <div><a class="btn btn-dark hvr-sweep-top px-4" href="#!" data-remodal-target="modal-closed">Apply</a></div>
-                </div>
-                <!-- <div><a class="btn btn-dark hvr-sweep-top px-4" href="#!" data-remodal-target="modal-vibe-journey-apply">Apply</a></div> -->
-
-              </div>
-            </div>
-
-
-            <div class="col-md-6 col-lg-4 d-flex flex-column mb-2 mb-md-4 "><a href="#!" data-remodal-target="modal-vibe-journey" target="_blank"> <img class="img-fluid rounded-top" src="./assets/img/projects/vibe-bali.jpg" alt="" /></a>
-              <div class="p-2 p-md-3 border rounded-bottom border-top-0 bg-vik-101 flex-grow-1 d-flex flex-column" >
-                <h5 class="text-base text-transform-none font-weight-medium lh-1"><a class="text-black" href="#!" data-remodal-target="modal-vibe-journey" target="_blank"><span class="text-sans-serif font-weight-bold d-block">VIBE Journey BALI</span><span class="fs-0 d-block">STARCHILD</span></a></h5>
-                <p class="mb-0">Immersive, multi-dimensional <i>sacred experience</i>.</p>
-                <div class="mt-auto d-flex flex-column program-card-cta">
-                  <a class="text-dark font-weight-semi-bold" href="./assets/media/vibe-journey-bali.pdf" target="_blank">More Info (PDF 16 Mb)<span class="fas fa-angle-right ml-1 text-900" data-fa-transform="down-2"></span></a>
-                  <hr class="program-card-cta-rule" />
-
-                  <div><a class="btn btn-dark hvr-sweep-top px-4" href="#!" data-remodal-target="modal-closed">Apply</a></div>
-                </div>
-                <!-- <div><a class="btn btn-dark hvr-sweep-top px-4" href="#!" data-remodal-target="modal-vibe-journey-apply">Apply</a></div> -->
-
-              </div>
-            </div>
-      
+              <div class="row justify-content-center card-scroll-row" id="programs-card-row">
               </div> <!-- End Row -->
             </div> <!-- card-scroll-viewport -->
           </div> <!-- card-scroll-shell -->
@@ -575,6 +526,7 @@
     <!-- ===============================================-->
     <!--    Modal Dialog Boxes-->
     <!-- ===============================================-->
+    <div id="program-modals-root"></div>
     <div class="remodal rounded-soft" data-remodal-id="modal-signup">
       <button class="remodal-close" data-remodal-action="close"></button>
       <h4 class="font-weight-medium ">Booking Inquiry</h4>
@@ -633,57 +585,6 @@
       <button class="btn btn-sm btn-dark mr-3" data-remodal-action="confirm">Close Window</button>
     </div>
 
-    
-
-    <div class="remodal rounded-soft" data-remodal-id="modal-vibe-course">
-      <button class="remodal-close" data-remodal-action="close"></button>
-      <h4><span class="font-weight-bold">Sacred</span> Spaces</h4>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/1.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/2.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/3.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/4.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/5.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/6.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/7.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/8.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Course/9.jpg" alt="">
-      <button class="btn btn-sm btn-dark mr-3" data-remodal-action="confirm">OK</button>
-    </div>
-
-    <div class="remodal rounded-soft" data-remodal-id="modal-vibe-journey">
-      <button class="remodal-close" data-remodal-action="close"></button>
-      <h4><span class="font-weight-bold">Vibe</span> Journey</h4>
-      <div class="rounded overflow-hidden mb-3">
-          <div class="player" data-plyr-provider="vimeo" data-plyr-embed-id="1056222627"></div>
-      </div>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey/1.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey/2.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey/3.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey/4.jpg" alt="">
-      <button class="btn btn-sm btn-dark mr-3" data-remodal-action="confirm">OK</button>
-    </div>
-
-    <div class="remodal rounded-soft" data-remodal-id="modal-vibe-journey-02">
-      <button class="remodal-close" data-remodal-action="close"></button>
-      <h4><span class="font-weight-bold">Vibe</span> Journey</h4>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/1.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/2.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/3.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/4.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/5.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/6.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/7.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/8.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/9.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/10.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/11.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/12.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/13.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/14.jpg" alt=""><br>
-      <img class="rounded w-100 mb-3" src="./assets/img/projects/VIBE-Journey-02/15.jpg" alt="">
-      <button class="btn btn-sm btn-dark mr-3" data-remodal-action="confirm">OK</button>
-    </div>
-
     <div class="remodal rounded-soft" data-remodal-id="modal-soon">
       <button class="remodal-close" data-remodal-action="close"></button>
       <h4>Coming Soon...<span class="font-weight-bold"></span></h4>
@@ -714,6 +615,7 @@
     <script src="./assets/lib/remodal/remodal.min.js"></script>
     <script src="./assets/js/site-nav.js" defer></script>
     <script src="./assets/js/modal-plyr-lazy.js" defer></script>
+    <script src="./assets/js/programs.js" defer></script>
 
   </body>
 

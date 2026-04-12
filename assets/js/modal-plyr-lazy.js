@@ -1,15 +1,18 @@
 /**
- * Lazy-load Plyr when the Vimeo journey remodal opens (vanilla JS; no jQuery).
+ * Lazy-load Plyr CSS + polyfilled script when any Remodal that contains .player opens.
+ * Watches all .remodal nodes; call window.watchRemodalForPlyr(el) for modals added later.
  */
 (function () {
   'use strict';
-
-  var MODAL_SEL = '.remodal[data-remodal-id="modal-vibe-journey"]';
 
   function modalIsActive(el) {
     return (
       el.classList.contains('remodal-is-opening') || el.classList.contains('remodal-is-opened')
     );
+  }
+
+  function modalNeedsPlayer(modal) {
+    return modal.querySelector('.player');
   }
 
   function loadPlyr() {
@@ -25,29 +28,42 @@
     script.src = './assets/lib/plyr/plyr.polyfilled.min.js';
     script.onload = function () {
       if (typeof Plyr !== 'undefined') {
-        Plyr.setup('.player');
+        try {
+          Plyr.setup('.player');
+        } catch (e) {
+          /* ignore */
+        }
       }
     };
     document.body.appendChild(script);
   }
 
-  function boot() {
-    var modal = document.querySelector(MODAL_SEL);
-    if (!modal) return;
+  function watchModal(modal) {
+    if (!modal || modal.getAttribute('data-plyr-watch') === '1') return;
+    modal.setAttribute('data-plyr-watch', '1');
 
-    if (modalIsActive(modal)) {
+    function maybeLoad() {
+      if (modalIsActive(modal) && modalNeedsPlayer(modal)) {
+        loadPlyr();
+      }
+    }
+
+    if (modalIsActive(modal) && modalNeedsPlayer(modal)) {
       loadPlyr();
       return;
     }
 
-    var obs = new MutationObserver(function () {
-      if (modalIsActive(modal)) {
-        loadPlyr();
-        obs.disconnect();
-      }
-    });
+    var obs = new MutationObserver(maybeLoad);
     obs.observe(modal, { attributes: true, attributeFilter: ['class'] });
   }
+
+  function boot() {
+    document.querySelectorAll('.remodal').forEach(watchModal);
+  }
+
+  window.watchRemodalForPlyr = function (modalEl) {
+    if (modalEl) watchModal(modalEl);
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
