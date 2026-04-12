@@ -17912,22 +17912,14 @@ a.hover-color-white:hover {
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 0.75rem;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(82, 91, 131, 0.5) rgba(0, 0, 0, 0.06);
+    /* Hide horizontal scrollbar; scrolling still works (touch / trackpad / shift+wheel) */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .card-scroll-viewport::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .card-scroll-viewport::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.06);
-    border-radius: 3px;
-  }
-
-  .card-scroll-viewport::-webkit-scrollbar-thumb {
-    background: rgba(82, 91, 131, 0.45);
-    border-radius: 3px;
+    display: none;
+    height: 0;
   }
 
   .card-scroll-row {
@@ -17990,9 +17982,21 @@ a.hover-color-white:hover {
   scroll-margin-top: 5rem;
 }
 
+/*
+ * At least one visible viewport of height so short bands (e.g. Community) do not leave the next
+ * section title peeking in. Content taller than the viewport still grows normally.
+ * 100dvh tracks dynamic browser UI (mobile URL bar); 100vh fallback for older engines.
+ */
+.section-min-viewport {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 /* Program & session cards: fixed spacing link → rule → button (flex mt-auto sits above this block) */
 .program-card-cta {
   flex-shrink: 0;
+  /* Match gap from title/subtitle block (h5) to description (p): reboot h5 margin-bottom 0.625rem */
+  padding-top: 0.625rem;
 }
 
 .program-card-cta-rule {
