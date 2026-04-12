@@ -120,9 +120,12 @@ spUtils.$document.ready(function () {
       return null;
     }); // Top navigation background toggle on mobile
 
-    $navbar.on('show.bs.collapse hide.bs.collapse', function (e) {
-      $(e.currentTarget).toggleClass('bg-dark');
-    });
+    /* Bootstrap collapse plugin only: pages using site-nav.js omit data-toggle on the toggler */
+    if ($navbar.find('[data-toggle="collapse"]').length) {
+      $navbar.on('show.bs.collapse hide.bs.collapse', function (e) {
+        $(e.currentTarget).toggleClass('bg-dark');
+      });
+    }
   }
 });
 /*-----------------------------------------------
@@ -455,6 +458,9 @@ spUtils.$document.ready(function () {
 
 spUtils.$document.ready(function () {
   var $navbarDropdown = $('.navbar-theme .dropdown');
+  if (!$navbarDropdown.length) {
+    return;
+  }
 
   if (!spDetector.isMobile) {
     $navbarDropdown.addClass('dropdown-on-hover');

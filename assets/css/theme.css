@@ -17917,6 +17917,17 @@ a.hover-color-white:hover {
   }
 }
 
+@media (max-width: 575.98px) {
+  .card-scroll-row {
+    gap: 0.5rem;
+  }
+
+  .program-card-cta-rule {
+    margin-top: 0.65rem;
+    margin-bottom: 0.65rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card-scroll-viewport {
     scroll-snap-type: none;
