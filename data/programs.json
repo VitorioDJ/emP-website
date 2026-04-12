@@ -1,6 +1,19 @@
 {
   "programs": [
     {
+      "id": "12-stages",
+      "image": "./landing/12s/assets/images/hero-image.jpg",
+      "title": "12 STAGES",
+      "subtitle": "Of Inner Development",
+      "description": "Clear map for your growth",
+      "landingPage": "./landing/12s/index.html",
+      "pdfUrl": "./landing/12s/index.html",
+      "pdfLabel": "More Info",
+      "buttonTitle": "Sign-up",
+      "buttonLink": "https://buy.stripe.com/14A5kCfTL5Bf2BvbEofYY0C",
+      "modal": []
+    },
+    {
       "id": "sacred-spaces",
       "image": "./assets/img/projects/c-sacred-spaces.jpg",
       "title": "SACRED SPACES",

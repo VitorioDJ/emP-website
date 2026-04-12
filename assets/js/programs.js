@@ -1,5 +1,6 @@
 /**
  * Load data/programs.json and render program cards + Remodal content.
+ * Optional program.landingPage: image/title link there (same document); no Remodal for that row.
  * Depends: jQuery, Remodal (after DOM ready for auto-init; new modals get .remodal() explicitly).
  */
 (function () {
@@ -165,8 +166,18 @@
     return parts.join('');
   }
 
+  function programLandingPage(program) {
+    return (program && program.landingPage ? String(program.landingPage) : '').trim();
+  }
+
+  function programNeedsRemodal(program) {
+    if (programLandingPage(program)) return false;
+    return Array.isArray(program.modal) && program.modal.length > 0;
+  }
+
   function buildCardHtml(program) {
     var modalId = MODAL_PREFIX + program.id;
+    var landing = programLandingPage(program);
     var pdfUrl = (program.pdfUrl || '').trim();
     var pdfLabel = program.pdfLabel || 'More Info (PDF)';
     var btnTitle = program.buttonTitle || 'Apply';
@@ -198,24 +209,34 @@
         '</a>';
     }
 
-    return (
-      '<div class="col-md-6 col-lg-4 d-flex flex-column mb-2 mb-md-4">' +
-      '<a href="#!" data-remodal-target="' +
-      escapeHtml(modalId) +
-      '"><img class="img-fluid rounded-top" src="' +
+    var imgLink =
+      '<a class="program-card-thumb rounded-top" ' +
+      (landing
+        ? 'href="' + escapeHtml(landing) + '"'
+        : 'href="#!" data-remodal-target="' + escapeHtml(modalId) + '"') +
+      '><img src="' +
       escapeHtml(program.image || '') +
-      '" alt=""></a>' +
-      '<div class="p-2 p-md-3 border rounded-bottom border-top-0 bg-vik-101 flex-grow-1 d-flex flex-column">' +
-      '<h5 class="text-base text-transform-none font-weight-medium lh-1">' +
-      '<a class="text-black" href="#!" data-remodal-target="' +
-      escapeHtml(modalId) +
-      '">' +
+      '" alt=""></a>';
+    var titleLink =
+      '<a class="text-black" ' +
+      (landing
+        ? 'href="' + escapeHtml(landing) + '"'
+        : 'href="#!" data-remodal-target="' + escapeHtml(modalId) + '"') +
+      '>' +
       '<span class="text-sans-serif font-weight-bold d-block">' +
       escapeHtml(program.title || '') +
       '</span>' +
       '<span class="fs-0 d-block">' +
       escapeHtml(program.subtitle || '') +
-      '</span></a></h5>' +
+      '</span></a>';
+
+    return (
+      '<div class="col-md-6 col-lg-4 d-flex flex-column mb-2 mb-md-4">' +
+      imgLink +
+      '<div class="p-2 p-md-3 border rounded-bottom border-top-0 bg-vik-101 flex-grow-1 d-flex flex-column">' +
+      '<h5 class="text-base text-transform-none font-weight-medium lh-1">' +
+      titleLink +
+      '</h5>' +
       '<p class="mb-0">' +
       descHtml +
       '</p>' +
@@ -273,12 +294,14 @@
       cardWrap.innerHTML = buildCardHtml(program);
       var cardEl = cardWrap.querySelector('.col-md-6');
       if (cardEl) fragCards.appendChild(cardEl);
-      var modalWrap = document.createElement('div');
-      modalWrap.innerHTML = buildModalHtml(program);
-      var modalEl = modalWrap.querySelector('.remodal');
-      if (modalEl) {
-        fragModals.appendChild(modalEl);
-        wirePlyrWatch(modalEl);
+      if (programNeedsRemodal(program)) {
+        var modalWrap = document.createElement('div');
+        modalWrap.innerHTML = buildModalHtml(program);
+        var modalEl = modalWrap.querySelector('.remodal');
+        if (modalEl) {
+          fragModals.appendChild(modalEl);
+          wirePlyrWatch(modalEl);
+        }
       }
     });
 

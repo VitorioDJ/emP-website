@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stages of Inner Development</title>
+    <meta name="description" content="Discover exactly where you are in your inner development and what's needed to move forward with greater ease. Leave with a clear map for your growth and a personalized reading about your next steps.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+    <!-- Fonts: Recoleta-style serif + clean sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           PTYA-INSPIRED DESIGN SYSTEM
+           Colors extracted from Part-Time YouTuber Academy
+           ============================================ */
+
+        :root {
+            /* Primary palette */
+            --color-primary: #5DCDF1;
+            --color-accent: #FD976D;
+            --color-yellow: #FDD46B;
+            --color-purple: #FD976D;
+            --color-green: #79D287;
+            --color-red: #fd6e6e;
+
+            /* Text */
+            --color-text: #1B1624;
+            --color-text-secondary: #54505B;
+            --color-text-muted: #76737C;
+            --color-text-light: #8D8A91;
+
+            /* Backgrounds */
+            --color-bg: #FFFFFF;
+            --color-bg-warm-1: #F9F6F3;
+            --color-bg-warm-2: #F3EDE9;
+            --color-bg-warm-3: #ECE5E1;
+
+            /* Typography */
+            --font-heading: 'DM Serif Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing scale */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1.5rem;
+            --space-lg: 3rem;
+            --space-xl: 5rem;
+            --space-2xl: 7.5rem;
+
+            /* Layout */
+            --max-width: 1200px;
+            --max-width-narrow: 700px;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+        }
+
+        /* ---- Reset ---- */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--color-primary); text-decoration: none; }
+
+        /* ---- Utilities ---- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .container--narrow {
+            max-width: var(--max-width-narrow);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: var(--space-xl) 0;
+        }
+
+        .text-center { text-align: center; }
+
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            color: var(--color-text);
+            margin-bottom: var(--space-md);
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+        }
+
+        /* ---- Buttons ---- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn--primary {
+            background: var(--color-accent);
+            color: #fff;
+        }
+        .btn--primary:hover {
+            background: #e8854f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(253, 151, 109, 0.35);
+        }
+
+        .btn--secondary {
+            background: transparent;
+            color: var(--color-text);
+            border: 2px solid var(--color-bg-warm-3);
+        }
+        .btn--secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .btn--large {
+            padding: 1.2rem 3rem;
+            font-size: 1.15rem;
+        }
+
+        /* ============================================
+           1. HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--color-text);
+        }
+
+        .hero__bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.85;
+        }
+
+        .hero__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(27, 22, 36, 0.25) 0%,
+                rgba(27, 22, 36, 0.6) 100%
+            );
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-2xl) 1.5rem;
+            text-align: center;
+        }
+
+        .hero__label {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(253, 151, 109, 0.15);
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            margin-bottom: var(--space-md);
+        }
+
+        .hero__title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: var(--space-md);
+        }
+
+        .hero__subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero__cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero__cta-group .btn--secondary {
+            color: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        .hero__cta-group .btn--secondary:hover {
+            border-color: var(--color-accent);
+            color: #fff;
+        }
+
+        /* ============================================
+           2. PROBLEM SECTION
+           ============================================ */
+        .problem {
+            background: var(--color-bg);
+        }
+
+        .problem__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .problem__card {
+            padding: var(--space-md);
+            background: var(--color-bg-warm-1);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--color-red);
+            font-size: 1.05rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           3. TRANSFORMATION SECTION
+           ============================================ */
+        .transformation {
+            background: var(--color-bg-warm-1);
+        }
+
+        .transformation__list {
+            list-style: none;
+            max-width: 650px;
+            margin: var(--space-lg) auto 0;
+        }
+
+        .transformation__item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: var(--space-sm) 0;
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+        }
+
+        .transformation__check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--color-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .transformation__check svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ============================================
+           4. COURSE BREAKDOWN
+           ============================================ */
+        .course-content {
+            background: var(--color-bg);
+        }
+
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .week-card {
+            background: var(--color-bg-warm-1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-md) var(--space-md) var(--space-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .week-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .week-card__number {
+            display: inline-block;
+            padding: 0.3rem 0.9rem;
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            border-radius: 999px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .week-card__title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            color: var(--color-text);
+            margin-bottom: var(--space-xs);
+        }
+
+        .week-card__desc {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        .week-card__lessons {
+            list-style: none;
+            margin-top: var(--space-sm);
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--color-bg-warm-3);
+        }
+
+        .week-card__lessons li {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            padding: 0.25rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .week-card__lessons li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-purple);
+        }
+
+        /* ============================================
+           5. FACILITATORS
+           ============================================ */
+        .facilitators {
+            background: var(--color-bg-warm-2);
+        }
+
+        .facilitator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .facilitator-card {
+            text-align: center;
+        }
+
+        .facilitator-card__photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto var(--space-md);
+            border: 4px solid var(--color-bg);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .facilitator-card__photo--placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto var(--space-md);
+            background: var(--color-bg-warm-3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+        }
+
+        .facilitator-card__name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .facilitator-card__title {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .facilitator-card__bio {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           6. SOCIAL PROOF
+           ============================================ */
+        .social-proof {
+            background: var(--color-bg-warm-1);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        @media (max-width: 900px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .testimonial-card {
+            background: var(--color-bg);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-md);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-card__photo-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            margin-bottom: var(--space-sm);
+        }
+
+        .testimonial-card__photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .testimonial-card__photo--placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 16px;
+            background: var(--color-bg-warm-3);
+            margin-bottom: var(--space-sm);
+        }
+
+        .testimonial-card__quote {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            line-height: 1.75;
+            margin-bottom: var(--space-md);
+            font-style: normal;
+            text-align: left;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .testimonial-card__quote::before {
+            content: '\201C';
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--color-purple);
+            line-height: 1;
+            display: block;
+            margin-bottom: 0;
+        }
+
+        .testimonial-card__name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .testimonial-card__role {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            text-align: left;
+            width: 100%;
+        }
+
+        .testimonial-card--placeholder {
+            border: 2px dashed var(--color-bg-warm-3);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+        /* ============================================
+           7. PRICING
+           ============================================ */
+        .pricing {
+            background: var(--color-text);
+            color: #fff;
+        }
+
+        .pricing .section-label {
+            color: var(--color-yellow);
+        }
+
+        .pricing .section-title {
+            color: #fff;
+        }
+
+        .pricing__card {
+            max-width: 550px;
+            margin: var(--space-lg) auto 0;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .pricing__amount {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--color-yellow);
+            margin-bottom: var(--space-xs);
+        }
+
+        .pricing__amount--placeholder {
+            color: var(--color-text-light);
+            font-size: 1.5rem;
+        }
+
+        .pricing__subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: var(--space-md);
+        }
+
+        .pricing__plan {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: var(--space-md);
+        }
+
+        .pricing__includes {
+            list-style: none;
+            text-align: left;
+            margin: var(--space-md) 0;
+        }
+
+        .pricing__includes li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing__includes li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--color-green);
+            border-radius: 50%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .pricing__cta {
+            margin-top: var(--space-md);
+        }
+
+        /* ============================================
+           8. GUARANTEE + FAQ + FINAL CTA
+           ============================================ */
+        .guarantee {
+            background: var(--color-bg-warm-1);
+        }
+
+        .guarantee__box {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+            padding: var(--space-lg);
+            background: var(--color-bg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .guarantee__icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-md);
+            background: var(--color-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .guarantee__icon svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+        }
+
+        .guarantee__text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .guarantee__text--placeholder {
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--color-bg);
+        }
+
+        .faq__list {
+            max-width: 700px;
+            margin: var(--space-lg) auto 0;
+        }
+
+        .faq__item {
+            border-bottom: 1px solid var(--color-bg-warm-3);
+        }
+
+        .faq__question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            padding: var(--space-md) 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .faq__question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--color-accent);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq__item.active .faq__question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq__answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq__answer-inner {
+            padding: 0 0 var(--space-md);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .faq__item--placeholder .faq__question {
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--color-text) 0%, #2d2640 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .final-cta .section-title { color: #fff; }
+        .final-cta .section-subtitle { color: rgba(255,255,255,0.7); }
+
+        /* ---- Sticky CTA Bar ---- */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(27, 22, 36, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .sticky-cta.visible { transform: translateY(0); }
+
+        .sticky-cta__text {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        /* ---- Placeholder styling ---- */
+        .placeholder {
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 10px,
+                rgba(253, 151, 109, 0.06) 10px,
+                rgba(253, 151, 109, 0.06) 20px
+            );
+            border: 2px dashed var(--color-bg-warm-3);
+            border-radius: var(--border-radius);
+            padding: var(--space-md);
+            text-align: center;
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+        /* ---- Responsive ---- */
+        @media (min-width: 768px) {
+            .sticky-cta__text { display: block; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: var(--space-lg) 0; }
+            .hero { min-height: 80vh; }
+            .hero__content { padding: var(--space-xl) 1.5rem; }
+            .pricing__card { padding: var(--space-md); }
+            .facilitator-grid { gap: var(--space-md); }
+            .week-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ---- Fade-in animation ---- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fixed nav menu */
+        .nav-menu {
+            position: fixed;
+            top: 1.25rem;
+            right: 1.25rem;
+            z-index: 1000;
+        }
+
+        .nav-menu__toggle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2.5px solid #d4a843;
+            background: var(--color-bg);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-left: auto;
+        }
+
+        .nav-menu__toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #333;
+            border-radius: 1px;
+        }
+
+        .nav-menu__dropdown {
+            display: none;
+            background: var(--color-bg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            margin-top: 0.5rem;
+            padding: 0.75rem 0;
+            min-width: 180px;
+        }
+
+        .nav-menu__dropdown.open {
+            display: block;
+        }
+
+        .nav-menu__dropdown a {
+            display: block;
+            padding: 0.6rem 1.25rem;
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-menu__dropdown a:hover {
+            background: var(--color-bg-warm);
+        }
+
+        .nav-menu__dropdown a:last-child {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            border-top: 1px solid var(--color-bg-warm-2);
+            margin-top: 0.25rem;
+            padding-top: 0.6rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed nav menu -->
+    <nav class="nav-menu">
+        <button class="nav-menu__toggle" onclick="document.querySelector('.nav-menu__dropdown').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu__dropdown">
+            <a href="#transformation" onclick="document.querySelector('.nav-menu__dropdown').classList.remove('open')">Transformation</a>
+            <a href="#facilitators" onclick="document.querySelector('.nav-menu__dropdown').classList.remove('open')">Facilitators</a>
+            <a href="#testimonials" onclick="document.querySelector('.nav-menu__dropdown').classList.remove('open')">Testimonials</a>
+            <a href="#pricing" onclick="document.querySelector('.nav-menu__dropdown').classList.remove('open')">Pricing</a>
+            <a href="#faq" onclick="document.querySelector('.nav-menu__dropdown').classList.remove('open')">FAQ</a>
+            <a href="#top" onclick="document.querySelector('.nav-menu__dropdown').classList.remove('open')">Back to top</a>
+        </div>
+    </nav>
+
+    <!-- ============================
+         1. HERO SECTION
+         ============================ -->
+    <section class="hero" id="top">
+        
+        <div class="hero__bg" style="background-image: url('assets/images/hero-image.jpg')"></div>
+        
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            
+            <span class="hero__label">Stages of Inner Development</span>
+            
+            <h1 class="hero__title">Find Your Stage on the Inner Journey</h1>
+            <p class="hero__subtitle">Discover exactly where you are in your inner development and what's needed to move forward with greater ease. Leave with a clear map for your growth and a personalized reading about your next steps.</p>
+            <div class="hero__cta-group">
+                <a href="#pricing" class="btn btn--primary btn--large">Reserve Your Spot</a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         2. PROBLEM SECTION
+         ============================ -->
+    <section class="problem section-padding" id="problem">
+        <div class="container text-center">
+            <span class="section-label">Sound familiar?</span>
+            <h2 class="section-title">You might recognize some of these patterns in your own life:</h2>
+            
+            <div class="problem__grid fade-in">
+                
+                <div class="problem__card">You keep attracting the same difficult people and situations, wondering why the same patterns repeat no matter how much you try to change your circumstances.</div>
+                
+                <div class="problem__card">You feel stuck in a cycle of self-improvement but can't pinpoint what's actually holding you back or what to focus on next.</div>
+                
+                <div class="problem__card">You sense you're meant for something bigger but feel lost about how to get there, cycling between inspiration and frustration.</div>
+                
+                <div class="problem__card">You cut off people who trigger you instead of understanding what they're showing you about your own growth edges.</div>
+                
+                <div class="problem__card">You swing between feeling like you have so much to offer and feeling completely inadequate, never quite finding solid ground.</div>
+                
+                <div class="problem__card">Despite all your inner work, you still have drama and chaos in your life, and you're starting to wonder if you're doing something fundamentally wrong.</div>
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ============================
+         3. TRANSFORMATION SECTION
+         ============================ -->
+    <section class="transformation section-padding" id="transformation">
+        <div class="container text-center">
+            <span class="section-label">The Transformation</span>
+            <h2 class="section-title">After this workshop, you'll walk away with:</h2>
+            
+            <ul class="transformation__list fade-in">
+                
+                <li class="transformation__item">
+                    <span class="transformation__check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                    <span>A clear understanding of exactly which stage of development you're in and why this matters for your growth.</span>
+                </li>
+                
+                <li class="transformation__item">
+                    <span class="transformation__check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                    <span>Recognition of your specific stuck patterns and practical tools to move through them with less resistance.</span>
+                </li>
+                
+                <li class="transformation__item">
+                    <span class="transformation__check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                    <span>Relief from confusion — you'll finally have a map that makes sense of your journey and experiences.</span>
+                </li>
+                
+                <li class="transformation__item">
+                    <span class="transformation__check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                    <span>Greater compassion for yourself and others as you understand that everyone is simply in different classrooms of consciousness.</span>
+                </li>
+                
+                <li class="transformation__item">
+                    <span class="transformation__check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                    <span>Clarity about what to focus on next instead of spinning your wheels on the wrong type of growth work.</span>
+                </li>
+                
+                <li class="transformation__item">
+                    <span class="transformation__check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                    <span>A sense of hope and direction, knowing that getting unstuck is possible and that you're exactly where you need to be.</span>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </section>
+
+    <!-- COURSE BREAKDOWN section removed (workshop format, not multi-week course)
+    <section class="course-content section-padding" id="course">
+        <div class="container text-center">
+            <span class="section-label">What You'll Learn</span>
+            <h2 class="section-title">Course Curriculum</h2>
+            <p class="section-subtitle">
+                Stages of Inner Development is a 0-week hands-on journey.
+            </p>
+        </div>
+    </section>
+    -->
+
+    <!-- ============================
+         FACILITATORS
+         ============================ -->
+    
+    <section class="facilitators section-padding" id="facilitators">
+        <div class="container text-center">
+            <span class="section-label">Your Guides</span>
+            <h2 class="section-title">Meet Your Facilitators</h2>
+            <div class="facilitator-grid fade-in">
+                
+                <div class="facilitator-card">
+                    
+                    <img src="assets/images/ico-evia.jpg" alt="Evia Aur" class="facilitator-card__photo">
+                    
+                    <h3 class="facilitator-card__name">Evia Aur</h3>
+                    
+                    <p class="facilitator-card__title">Inner Designer</p>
+                    
+                    
+                    <p class="facilitator-card__bio">Evia built her reputation designing beautiful, sustainable interiors for hotels and hospitality brands — spaces where people walk in and just feel better. That instinct for environment eventually took her beyond four walls and into the study of energy, crystals, and how our surroundings shape us from the inside out. She now works worldwide with people who want to bring more intention to how they design their lives, not just their living rooms. She's practical, perceptive, and genuinely fun to learn from.</p>
+                    
+                </div>
+                
+                <div class="facilitator-card">
+                    
+                    <img src="assets/images/ico-vik.jpg" alt="Vitorio De Janeiro" class="facilitator-card__photo">
+                    
+                    <h3 class="facilitator-card__name">Vitorio De Janeiro</h3>
+                    
+                    <p class="facilitator-card__title">Soul Alchemist</p>
+                    
+                    
+                    <p class="facilitator-card__bio">Vitorio's first career was in real estate development and digital animation, building companies between the US, Brazil, and Europe. His second career started when he asked a harder question: what would happen if he applied that same drive to understanding himself? That question took him into years of studying astrology, energy work, and the mechanics of personal change. Now he helps entrepreneurs and leaders align their outer ambitions with their inner compass — no fluff, just honest, grounded guidance from someone who's walked both paths.</p>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- ============================
+         5. SOCIAL PROOF
+         ============================ -->
+    <section class="social-proof section-padding" id="testimonials">
+        <div class="container text-center">
+            <span class="section-label" style="display: block; line-height: 1; margin-bottom: var(--space-sm);">What Students Say<br><span style="font-weight: normal; font-size: 0.75em; opacity: 0.7; letter-spacing: 0.05em; margin-top: 2px; display: inline-block;">about last course with Evia &amp; Vitorio</span></span>
+            <h2 class="section-title">Real Experiences, Real Transformations</h2>
+            
+            <div class="testimonial-grid fade-in">
+                
+                
+                <div class="testimonial-card">
+                    
+                    <div class="testimonial-card__photo-wrapper">
+                        <img src="assets/testimonials/t-anna.jpg" alt="Anna" class="testimonial-card__photo">
+                    </div>
+                    
+                    <p class="testimonial-card__quote">I feel radiant... it's one thing to get the tools, the other thing is to actually apply it daily.</p>
+                    <div class="testimonial-card__name">Anna</div>
+                    
+                    <div class="testimonial-card__role">Empower House member</div>
+                    
+                </div>
+                
+                
+                
+                <div class="testimonial-card">
+                    
+                    <div class="testimonial-card__photo-wrapper">
+                        <img src="assets/testimonials/t-dominique-h.jpg" alt="Dominique H." class="testimonial-card__photo">
+                    </div>
+                    
+                    <p class="testimonial-card__quote">I feel so grateful. I received so much love — I can't wait to take Practical Magic.</p>
+                    <div class="testimonial-card__name">Dominique H.</div>
+                    
+                    <div class="testimonial-card__role">Empower House member</div>
+                    
+                </div>
+                
+                
+                
+                <div class="testimonial-card">
+                    
+                    <div class="testimonial-card__photo-wrapper">
+                        <img src="assets/testimonials/t-quentin.jpg" alt="Quentin" class="testimonial-card__photo">
+                    </div>
+                    
+                    <p class="testimonial-card__quote">I feel very coherent, very excited — it's opening so many perspectives. I feel like I'm building my future here.</p>
+                    <div class="testimonial-card__name">Quentin</div>
+                    
+                    <div class="testimonial-card__role">Empower House member</div>
+                    
+                </div>
+                
+                
+                
+                <div class="testimonial-card">
+                    
+                    <div class="testimonial-card__photo-wrapper">
+                        <img src="assets/testimonials/t-dominique-r.jpg" alt="Dominique R." class="testimonial-card__photo">
+                    </div>
+                    
+                    <p class="testimonial-card__quote">I am the technology. I am the operator, and I am the temple.</p>
+                    <div class="testimonial-card__name">Dominique R.</div>
+                    
+                    <div class="testimonial-card__role">Empower House member</div>
+                    
+                </div>
+                
+                
+                
+                <div class="testimonial-card">
+                    
+                    <div class="testimonial-card__photo-wrapper">
+                        <img src="assets/testimonials/t-jeanne.jpg" alt="Jeanne" class="testimonial-card__photo">
+                    </div>
+                    
+                    <p class="testimonial-card__quote">This session was really the embodiment of the sacred for me.</p>
+                    <div class="testimonial-card__name">Jeanne</div>
+                    
+                    <div class="testimonial-card__role">Empower House member</div>
+                    
+                </div>
+                
+                
+                
+                <div class="testimonial-card">
+                    
+                    <div class="testimonial-card__photo-wrapper">
+                        <img src="assets/testimonials/t-gilles.jpg" alt="Gilles" class="testimonial-card__photo">
+                    </div>
+                    
+                    <p class="testimonial-card__quote">Getting closer and closer to my true self — grateful for this never-ending journey where things are unfolding, full of magic.</p>
+                    <div class="testimonial-card__name">Gilles</div>
+                    
+                    <div class="testimonial-card__role">Empower House member</div>
+                    
+                </div>
+                
+                
+                
+                <div class="testimonial-card">
+                    
+                    <div class="testimonial-card__photo-wrapper">
+                        <img src="assets/testimonials/t-zane.jpg" alt="Zane" class="testimonial-card__photo">
+                    </div>
+                    
+                    <p class="testimonial-card__quote">I feel really great and energized — all the practice tools and meditations.</p>
+                    <div class="testimonial-card__name">Zane</div>
+                    
+                    <div class="testimonial-card__role">Empower House member</div>
+                    
+                </div>
+                
+                
+                
+                <div class="testimonial-card">
+                    
+                    <div class="testimonial-card__photo-wrapper">
+                        <img src="assets/testimonials/t-hanna.jpg" alt="Hanna" class="testimonial-card__photo">
+                    </div>
+                    
+                    <p class="testimonial-card__quote">After each session I just want to run to my altar and make adjustments. So many more possibilities have opened up.</p>
+                    <div class="testimonial-card__name">Hanna</div>
+                    
+                    <div class="testimonial-card__role">Empower House member</div>
+                    
+                </div>
+                
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ============================
+         6. PRICING
+         ============================ -->
+    <section class="pricing section-padding" id="pricing">
+        <div class="container text-center">
+            <span class="section-label">Investment</span>
+            <h2 class="section-title">Start Your Journey</h2>
+            <div class="pricing__card fade-in">
+                
+                <div class="pricing__amount">€ 120</div>
+                
+
+                
+                <p class="pricing__subtitle">Non-member price (Free for Empower House members)</p>
+                
+
+                
+
+                
+                <ul class="pricing__includes">
+                    
+                    <li>2-hour live interactive online workshop with Evia & Vitorio</li>
+                    
+                    <li>The complete 12 Stages of Inner Development framework</li>
+                    
+                    <li>Personalized 5-10 minute audio reading about your growth edge</li>
+                    
+                    <li>Comprehensive self-assessment handout for continued exploration</li>
+                    
+                    <li>Recording of the full workshop session</li>
+                    
+                </ul>
+                
+
+                <div class="pricing__cta">
+                    <a href="https://buy.stripe.com/14A5kCfTL5Bf2BvbEofYY0C" class="btn btn--primary btn--large">
+                        Reserve Your Spot
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- ============================
+         FAQ
+         ============================ -->
+    <section class="faq section-padding" id="faq">
+        <div class="container text-center">
+            <span class="section-label">Questions?</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq__list">
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>I'm curious but I've never done anything like this. Is it for me?</span>
+                    </button>
+                    <div class="faq__answer">
+                        <div class="faq__answer-inner">This workshop is perfect for anyone who senses they're stuck or seeking direction, regardless of your background. The framework applies to all human development, and we explain everything in simple, practical terms.</div>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>How do I know which stage I'm in?</span>
+                    </button>
+                    <div class="faq__answer">
+                        <div class="faq__answer-inner">During the workshop, you'll have guided reflection time to identify patterns in your life that indicate your current stage. Plus, your personalized reading afterward will give you specific insights based on what you share and your unique astrology.</div>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>What if I discover I'm stuck in a lower stage? Will I feel judged?</span>
+                    </button>
+                    <div class="faq__answer">
+                        <div class="faq__answer-inner">There are no higher or lower stages — just different classrooms in the university of consciousness. Each stage has essential gifts, and knowing where you are helps you focus on the right growth work instead of judging yourself.</div>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>How long are the personalized readings you mention?</span>
+                    </button>
+                    <div class="faq__answer">
+                        <div class="faq__answer-inner">Each participant receives a 5-10 minute personalized audio reading within one week of the workshop, offering specific insights about your stage and practical next steps tailored to your situation.</div>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>I've been on this path for years but still struggle. Will this actually help?</span>
+                    </button>
+                    <div class="faq__answer">
+                        <div class="faq__answer-inner">Yes — this framework explains why traditional approaches sometimes don't work. You might be trying to do advanced work when foundational stages need attention, or focusing on the wrong type of growth for your current stage.</div>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>What's the difference between the member and non-member price?</span>
+                    </button>
+                    <div class="faq__answer">
+                        <div class="faq__answer-inner">This workshop is free for current Empower House members as part of their membership benefits. Non-members can join for EUR 120, which includes the workshop, personalized reading, and follow-up materials.</div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ============================
+         FINAL CTA
+         ============================ -->
+    <section class="final-cta section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Ready to Begin?</h2>
+            <p class="section-subtitle">Your transformation starts with a single step.</p>
+            <a href="https://buy.stripe.com/14A5kCfTL5Bf2BvbEofYY0C" class="btn btn--primary btn--large">
+                Reserve Your Spot
+            </a>
+        </div>
+    </section>
+
+    <!-- ---- Sticky CTA Bar ---- -->
+    <div class="sticky-cta" id="stickyCta">
+        <span class="sticky-cta__text">Stages of Inner Development</span>
+        <a href="https://buy.stripe.com/14A5kCfTL5Bf2BvbEofYY0C" class="btn btn--primary">
+            Reserve Your Spot
+        </a>
+    </div>
+
+    <!-- ---- Footer ---- -->
+    <footer style="text-align:center; padding: 2rem; color: var(--color-text-muted); font-size: 0.85rem;">
+        &copy; 2026 emPower House. All rights reserved.
+    </footer>
+
+    <!-- ============================================
+         SCRIPTS
+         ============================================ -->
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq__question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const answer = item.querySelector('.faq__answer');
+                const isActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq__item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq__answer').style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Sticky CTA bar
+        const stickyCta = document.getElementById('stickyCta');
+        const hero = document.querySelector('.hero');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > hero.offsetHeight) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

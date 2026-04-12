@@ -18040,4 +18040,23 @@ a.hover-color-white:hover {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/*
+ * JSON program cards: same visible ratio as Sessions row thumbs (header images 1280×720, 16:9).
+ * Crop with cover so mixed source aspect ratios (e.g. PDF hero vs project photos) align in the grid.
+ */
+.program-card-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.program-card-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 /*# sourceMappingURL=theme.css.map */
