@@ -13922,13 +13922,14 @@ label {
 }
 
 .remodal-close {
-  top: -2rem;
-  right: -2rem;
+  top: 0.5rem;
+  right: 0.5rem;
   left: auto;
+  z-index: 2;
 }
 
 .remodal-close:hover, .remodal-close:focus {
-  color: #fff;
+  color: #2b2e38;
 }
 
 .lb-data .lb-caption, .lb-data .lb-number {
