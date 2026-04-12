@@ -13926,10 +13926,29 @@ label {
   right: 0.5rem;
   left: auto;
   z-index: 2;
+  /* <button> UA styles: no border / ring when focused or pressed */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0;
 }
 
-.remodal-close:hover, .remodal-close:focus {
+.remodal-close::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.remodal-close:hover,
+.remodal-close:focus,
+.remodal-close:focus-visible,
+.remodal-close:active {
   color: #2b2e38;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .lb-data .lb-caption, .lb-data .lb-number {
