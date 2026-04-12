@@ -14052,12 +14052,28 @@ label {
   -webkit-box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   z-index: 99;
+  border: none;
+  outline: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.owl-theme .owl-nav [class*=owl-]::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
 .owl-theme .owl-nav [class*=owl-]:hover, .owl-theme .owl-nav [class*=owl-]:focus {
   background-color: #fff;
   color: #000;
   opacity: 1 !important;
+  outline: none !important;
+}
+
+.owl-theme .owl-nav [class*=owl-]:focus-visible,
+.owl-theme .owl-nav [class*=owl-]:active {
+  outline: none !important;
 }
 
 .owl-theme .owl-nav .owl-prev {
@@ -14294,12 +14310,28 @@ label {
   font-size: 2rem !important;
   margin: 0;
   z-index: 99;
+  border: none;
+  outline: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header-slider.owl-theme .owl-nav [class*=owl-]::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
 .header-slider.owl-theme .owl-nav [class*=owl-]:hover, .header-slider.owl-theme .owl-nav [class*=owl-]:focus {
   background-color: #fff;
   color: #000;
   opacity: 1 !important;
+  outline: none !important;
+}
+
+.header-slider.owl-theme .owl-nav [class*=owl-]:focus-visible,
+.header-slider.owl-theme .owl-nav [class*=owl-]:active {
+  outline: none !important;
 }
 
 .header-slider.owl-theme .owl-nav .indicator-arrow {

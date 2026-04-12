@@ -1768,6 +1768,21 @@ spUtils.$document.ready(function () {
           owlZanim.play($(event.target));
         }
       }));
+
+      /*
+       * Owl Autoplay only resets its clock on user-driven position changes when autoplay is
+       * paused (see changed.owl.carousel + this._paused in owl.carousel.js). While rotating,
+       * a drag leaves the old deadline in place, so the next auto-advance can fire too soon.
+       * After every completed transition, restart autoplay so the current slide gets a full
+       * autoplayTimeout (drag or automatic).
+       */
+      if (options.autoplay) {
+        var autoplayMs = options.autoplayTimeout || 5000;
+        $this.on('translated.owl.carousel', function () {
+          $this.trigger('stop.owl.autoplay');
+          $this.trigger('play.owl.autoplay', [autoplayMs]);
+        });
+      }
     });
   }
 });
