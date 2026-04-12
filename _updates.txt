@@ -1,0 +1,6 @@
+not fixed. look deeper. there are 2 sub-menus. FIRST TIME that they are opened - the whole menu collapses. SECOND TIME sub-menu is opened - main menu doesn't collapse. It's the same with both sib-menus. Issue is likely with caching components. Before components are cached - main menu trats sub-menu link as regular target link - touches it and closes the menu as instructed. Key is to inform the main menu that sub-menu is a menu and not a simple link. Look deeper into this and give real solution - not superficial, non-functional patch as you just did.
+
+---
+
+do NOT allow for extra click. I don't care if it works on Safari or not. This is most likely fix for some old version of Safari anyway. 
+

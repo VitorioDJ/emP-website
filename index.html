@@ -45,33 +45,38 @@
     <link href="./assets/lib/remodal/remodal.css" rel="stylesheet">
     <link href="./assets/lib/remodal/remodal-default-theme.css" rel="stylesheet">
     <link href="./assets/css/theme.css" rel="stylesheet">
+    <link href="./assets/css/site-nav.css" rel="stylesheet">
 
   </head>
 
 
   <body data-spy="scroll" data-target="#navbar-one-page" data-offset="80">
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-theme fixed-top py-0">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-theme fixed-top py-0" aria-label="Primary">
       <div class="container"><a class="navbar-brand font-weight-normal ls-1" href="#top" data-fancyscroll="data-fancyscroll" data-offset="64"><img class="testimonial-company-logo d-inline-block opacity-80" src="./assets/img/logo/b&amp;w/col-logo.png" alt="" /></a>
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler collapsed" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon" aria-hidden="true"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto" id="navbar-one-page">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown2"><b>Empower</b></a>
-              <div class="dropdown-menu" aria-labelledby="dropdown2">
-                <a class="dropdown-item" href="#programs" data-fancyscroll="data-fancyscroll" data-offset="64">Programs</a>
-                <a class="dropdown-item" href="#s-community" data-fancyscroll="data-fancyscroll" data-offset="64">Community</a>
-                <a class="dropdown-item" href="#s-session" data-fancyscroll="data-fancyscroll" data-offset="64">Private Sessions</a>
-              </div>
-            </li> 
+            <li class="nav-item">
+              <details class="site-nav-disclosure">
+                <summary class="nav-link dropdown-toggle site-nav-summary" id="dropdown-empower"><span class="nav-link-text"><b>Empower</b></span></summary>
+                <div class="dropdown-menu" aria-labelledby="dropdown-empower">
+                  <a class="dropdown-item" href="#programs" data-fancyscroll="data-fancyscroll" data-offset="64">Programs</a>
+                  <a class="dropdown-item" href="#s-community" data-fancyscroll="data-fancyscroll" data-offset="64">Community</a>
+                  <a class="dropdown-item" href="#s-session" data-fancyscroll="data-fancyscroll" data-offset="64">Private Sessions</a>
+                </div>
+              </details>
+            </li>
             <li class="nav-item"><a class="nav-link" href="#testimonials" data-fancyscroll="data-fancyscroll" data-offset="64"> <span class="nav-link-text">Testimonials</span></a></li>
             <li class="nav-item"><a class="nav-link" href="#about-us" data-fancyscroll="data-fancyscroll" data-offset="64"> <span class="nav-link-text">Our Story</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="#sign-up" data-fancyscroll="data-fancyscroll" data-offset="64"> <span class="nav-link-text">Our News</span></a></li>     
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown2"><b>log-in</b></a>
-              <div class="dropdown-menu" aria-labelledby="dropdown2">
-                <a class="dropdown-item" href="https://signup.empower-house.org" target="_blank">member community</a>
-                <a class="dropdown-item" href="https://courses.empower-house.org" target="_blank">my courses</a>
-              </div>
+            <li class="nav-item"><a class="nav-link" href="#sign-up" data-fancyscroll="data-fancyscroll" data-offset="64"> <span class="nav-link-text">Our News</span></a></li>
+            <li class="nav-item">
+              <details class="site-nav-disclosure">
+                <summary class="nav-link dropdown-toggle site-nav-summary" id="dropdown-login"><span class="nav-link-text"><b>log-in</b></span></summary>
+                <div class="dropdown-menu" aria-labelledby="dropdown-login">
+                  <a class="dropdown-item" href="https://signup.empower-house.org" target="_blank" rel="noopener noreferrer">member community</a>
+                  <a class="dropdown-item" href="https://courses.empower-house.org" target="_blank" rel="noopener noreferrer">my courses</a>
+                </div>
+              </details>
             </li>
           </ul>
         </div>
@@ -708,41 +713,8 @@
     <script src="./assets/js/theme.js"></script>
     <script src="./assets/lib/owl.carousel/owl.carousel.js"></script>
     <script src="./assets/lib/remodal/remodal.min.js"></script>
-    <script>
-      // Close mobile navbar when a nav link is clicked
-      $(document).on('click', '.navbar-collapse .nav-link, .navbar-collapse .dropdown-item', function () {
-        var $collapse = $('.navbar-collapse.show');
-        if ($collapse.length) {
-          $collapse.collapse('hide');
-        }
-      });
-
-      // Close mobile navbar when clicking outside of it
-      $(document).on('click', function (e) {
-        var $navbar = $('.navbar');
-        var $collapse = $('.navbar-collapse.show');
-        if ($collapse.length && !$navbar.is(e.target) && $navbar.has(e.target).length === 0) {
-          $collapse.collapse('hide');
-        }
-      });
-
-      // Lazy-load Plyr only when the Vimeo modal is opened
-      var plyrLoaded = false;
-      $(document).on('opening', '.remodal[data-remodal-id="modal-vibe-journey"]', function () {
-        if (plyrLoaded) return;
-        plyrLoaded = true;
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = './assets/lib/plyr/plyr.css';
-        document.head.appendChild(link);
-        var script = document.createElement('script');
-        script.src = './assets/lib/plyr/plyr.polyfilled.min.js';
-        script.onload = function () {
-          var players = Plyr.setup('.player');
-        };
-        document.body.appendChild(script);
-      });
-    </script>
+    <script src="./assets/js/site-nav.js" defer></script>
+    <script src="./assets/js/modal-plyr-lazy.js" defer></script>
 
   </body>
 

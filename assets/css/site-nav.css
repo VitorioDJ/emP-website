@@ -1,0 +1,120 @@
+/* Site navigation — HTML5 details/summary + mobile drawer (no Bootstrap collapse/dropdown JS) */
+
+.site-nav-disclosure {
+  margin: 0;
+}
+
+.site-nav-disclosure > summary.site-nav-summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  /* Desktop: submenu opens on hover — avoid “clickable button” cursor on the title */
+  .navbar-expand-lg .site-nav-disclosure > summary.site-nav-summary {
+    cursor: default;
+  }
+}
+
+/*
+ * Caret spacing: .nav-link letter-spacing makes the label’s bbox tight vs the glyph edge;
+ * flex + gap still looked overlapped. Reserve a fixed right column and pin ::after there.
+ */
+.site-nav-disclosure > summary.site-nav-summary.dropdown-toggle {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  /* ~triangle width + sliver of air; was 1.35rem and felt too far from the title */
+  padding-right: 0.65rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.site-nav-disclosure > summary.site-nav-summary.dropdown-toggle::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Trailing letter-spacing on uppercase labels eats into the gap */
+.site-nav-disclosure > summary.site-nav-summary .nav-link-text {
+  display: inline-block;
+  padding-right: 0.1em;
+}
+
+.site-nav-disclosure > summary.site-nav-summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-nav-disclosure > summary.site-nav-summary::marker {
+  content: "";
+}
+
+/* Match theme timing; submenu titles are not “primary” links — no white hover pill */
+.navbar-theme .navbar-nav > .nav-item > .site-nav-disclosure > summary.site-nav-summary {
+  position: relative;
+  -webkit-transition: padding 0.4s ease;
+  -o-transition: padding 0.4s ease;
+  transition: padding 0.4s ease;
+}
+
+/* Same default weight as other nav labels; no bright hover (avoids fake “go somewhere” button) */
+.navbar-dark .navbar-nav .site-nav-disclosure > summary.site-nav-summary.nav-link,
+.navbar-dark .navbar-nav .site-nav-disclosure > summary.site-nav-summary.nav-link:hover,
+.navbar-dark .navbar-nav .site-nav-disclosure > summary.site-nav-summary.nav-link:focus {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-theme .navbar-nav > .nav-item > .site-nav-disclosure > summary.site-nav-summary .nav-link-text,
+.navbar-theme .navbar-nav > .nav-item > .site-nav-disclosure > summary.site-nav-summary:hover .nav-link-text,
+.navbar-theme .navbar-nav > .nav-item > .site-nav-disclosure > summary.site-nav-summary:focus .nav-link-text,
+.navbar-theme .navbar-nav > .nav-item > .site-nav-disclosure > summary.site-nav-summary:active .nav-link-text,
+.navbar-theme .navbar-nav > .nav-item.site-nav-item-open > .site-nav-disclosure > summary.site-nav-summary .nav-link-text {
+  background-color: transparent;
+  color: inherit;
+  border-radius: 0;
+}
+
+.site-nav-disclosure > summary.site-nav-summary:focus {
+  outline: none;
+}
+
+.site-nav-disclosure > summary.site-nav-summary:focus-visible {
+  outline: 1px dotted rgba(255, 255, 255, 0.45);
+  outline-offset: 3px;
+}
+
+/* Large screens: anchor absolute .dropdown-menu to the disclosure row, align with sibling .nav-link items */
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav > .nav-item > .site-nav-disclosure {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    height: 100%;
+    margin: 0;
+  }
+
+}
+
+@media (max-width: 991.98px) {
+  .site-nav-disclosure .dropdown-menu {
+    position: static;
+    float: none;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
