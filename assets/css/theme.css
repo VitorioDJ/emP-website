@@ -17943,4 +17943,18 @@ a.hover-color-white:hover {
   }
 }
 
+/* Program cards: fixed spacing between More Info link and Apply (flex mt-auto sits above this block) */
+.program-card-cta {
+  flex-shrink: 0;
+}
+
+.program-card-cta-rule {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  margin-left: 0;
+  margin-right: 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 /*# sourceMappingURL=theme.css.map */
