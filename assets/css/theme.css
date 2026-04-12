@@ -17943,7 +17943,7 @@ a.hover-color-white:hover {
   }
 }
 
-/* Program cards: fixed spacing between More Info link and Apply (flex mt-auto sits above this block) */
+/* Program & session cards: fixed spacing link → rule → button (flex mt-auto sits above this block) */
 .program-card-cta {
   flex-shrink: 0;
 }
