@@ -506,13 +506,35 @@ spUtils.$document.ready(function ($) {
   });
   var hash = window.location.hash;
 
-  if (document.getElementById(hash.slice(1))) {
-    var $this = $(hash);
-    $('html,body').animate({
-      scrollTop: $this.offset().top - $("a[href='" + hash + "']").data('offset')
-    }, 800, 'swing', function () {
-      window.history.pushState ? window.history.pushState(null, null, hash) : window.location.hash = hash;
-    });
+  if (hash && hash.length > 1 && document.getElementById(hash.slice(1))) {
+    var runHashScroll = function runHashScroll() {
+      var $target = $(hash);
+      if (!$target.length) return;
+      var $nav = $('.navbar.fixed-top');
+      var hashOffset = $nav.length ? $nav.outerHeight() : 0;
+      if (!hashOffset) {
+        hashOffset = parseInt($('body').attr('data-offset'), 10) || 64;
+      }
+      $('html,body').stop(true).animate({
+        scrollTop: $target.offset().top - hashOffset
+      }, 600, 'swing', function () {
+        window.history.pushState ? window.history.pushState(null, null, hash) : window.location.hash = hash;
+      });
+    };
+
+    // Targets below the Owl testimonials carousel: layout height is wrong until
+    // carousel + images have run; ready() hash scroll uses a too-small #about-us top.
+    var deferForLayout = hash === '#about-us' || hash === '#sign-up';
+
+    if (deferForLayout) {
+      if (document.readyState === 'complete') {
+        runHashScroll();
+      } else {
+        $(window).one('load', runHashScroll);
+      }
+    } else {
+      runHashScroll();
+    }
   }
 });
 /*-----------------------------------------------

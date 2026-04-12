@@ -17943,6 +17943,11 @@ a.hover-color-white:hover {
   }
 }
 
+/* One-page hash targets: id on <section>; native jump + focus respect fixed navbar (JS also uses .navbar height) */
+.section-scroll-target {
+  scroll-margin-top: 5rem;
+}
+
 /* Program & session cards: fixed spacing link → rule → button (flex mt-auto sits above this block) */
 .program-card-cta {
   flex-shrink: 0;
