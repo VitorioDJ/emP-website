@@ -18009,17 +18009,18 @@ a.hover-color-white:hover {
   }
 }
 
-/* One-page hash targets: id on <section>; native jump + focus respect fixed navbar (JS also uses .navbar height) */
+/* One-page hash targets: id on <section>; --navbar-h is measured by navbar-height.js
+   so the offset always matches the real navbar height (5rem fallback if JS hasn't run). */
 .section-scroll-target {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: var(--navbar-h, 5rem);
 }
 
 /*
- * Fill the viewport ONLY when the section is the active anchor target (URL hash matches its id).
- * Navbar smooth-scroll calls pushState() so :target fires on link clicks and deep links;
- * during plain scrolling the hash doesn't match, so sections keep their natural height
- * and no longer "pop" larger as the user scrolls past. Content centers vertically when expanded.
- * 100dvh tracks dynamic browser UI (mobile URL bar); 100vh fallback for older engines.
+ * Always fill the viewport and vertically center content. Uses 100svh (small viewport
+ * height) so the section locks at the smallest possible viewport size and does NOT
+ * reflow when the mobile URL bar shows/hides during scrolling — eliminating the "pop"
+ * the previous :target-gated approach was working around. 100vh kept as a fallback
+ * for engines that don't support svh.
  */
 .section-min-viewport {
   min-height: 100vh;   /* fallback for older browsers */
@@ -18027,6 +18028,26 @@ a.hover-color-white:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/*
+ * Small-device scroll snapping: on phones, scrolling locks each viewport-tall section
+ * to the screen. scroll-snap-stop: always = one snap point per gesture, so the user
+ * can't accidentally blow past a section. Easing for the snap animation is browser-
+ * controlled (scroll-behavior: smooth); CSS cannot customize the easing curve.
+ */
+@media (max-width: 767.98px) {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .section-min-viewport,
+  #about-us,
+  #sign-up {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 /* Program & session cards: fixed spacing link → rule → button (flex mt-auto sits above this block) */
