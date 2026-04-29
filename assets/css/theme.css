@@ -18021,9 +18021,9 @@ a.hover-color-white:hover {
  * and no longer "pop" larger as the user scrolls past. Content centers vertically when expanded.
  * 100dvh tracks dynamic browser UI (mobile URL bar); 100vh fallback for older engines.
  */
-.section-min-viewport:target {
-  min-height: 100vh;
-  min-height: 100dvh;
+.section-min-viewport {
+  min-height: 100vh;   /* fallback for older browsers */
+  min-height: 100svh;  /* stable: never reflows when mobile URL bar shows/hides */
   display: flex;
   flex-direction: column;
   justify-content: center;
