@@ -18015,13 +18015,18 @@ a.hover-color-white:hover {
 }
 
 /*
- * At least one visible viewport of height so short bands (e.g. Community) do not leave the next
- * section title peeking in. Content taller than the viewport still grows normally.
+ * Fill the viewport ONLY when the section is the active anchor target (URL hash matches its id).
+ * Navbar smooth-scroll calls pushState() so :target fires on link clicks and deep links;
+ * during plain scrolling the hash doesn't match, so sections keep their natural height
+ * and no longer "pop" larger as the user scrolls past. Content centers vertically when expanded.
  * 100dvh tracks dynamic browser UI (mobile URL bar); 100vh fallback for older engines.
  */
-.section-min-viewport {
+.section-min-viewport:target {
   min-height: 100vh;
   min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Program & session cards: fixed spacing link → rule → button (flex mt-auto sits above this block) */
